@@ -1,0 +1,7 @@
+services:
+  dev:
+    image: node:17
+    entrypoint: yarn
+    command: dev
+  volumes:
+    - .:/

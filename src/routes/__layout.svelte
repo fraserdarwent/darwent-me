@@ -20,6 +20,10 @@
   :global(html) {
     height: 100%;
   }
+  :global(a) {
+    text-decoration: none;
+    color: unset;
+  }
 
   main {
     font-family: 'Rock Salt', cursive;
@@ -29,9 +33,9 @@
     // padding: 50px;
     width: 100%;
     min-height: 100%;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    max-width: 1024px;
+    // max-width: 1024px;
     box-sizing: border-box;
   }
 </style>
