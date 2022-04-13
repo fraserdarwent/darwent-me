@@ -7,7 +7,6 @@ const config = {
     files: {
       assets: 'src/lib/assets',
     },
-    prerender: { default: true },
     adapter: adapter(),
   },
   preprocess: preprocess(),
