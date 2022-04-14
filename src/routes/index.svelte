@@ -41,7 +41,7 @@
 
 <main>
   <h1>Fraser Darwent</h1>
-  <Item name="consultant" />
-  <Item name="engineer" />
-  <Item name="scrum master" />
+  <Item words={['consultant', 'problem solver']} />
+  <Item words={['engineer', 'developer']} delay={2000} />
+  <Item words={['scrum master', 'enabler']} delay={4000} />
 </main>
