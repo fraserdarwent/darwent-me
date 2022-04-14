@@ -1,6 +1,8 @@
 {
-  "name": "fuelr",
-  "version": "0.0.1",
+  "name": "darwent.me",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Unlicsensed",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",

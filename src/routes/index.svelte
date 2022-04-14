@@ -1,9 +1,12 @@
 <script context="module">
   export let prerender = true;
+  import { fly, scale, slide, fade } from 'svelte/transition';
+  import Item from '$lib/components/item.svelte';
+  import Consultant from '$lib/components/text/consultant.svelte';
 </script>
 
 <script>
-  import Item from '$lib/components/item.svelte';
+  let show = '';
 </script>
 
 <style>
@@ -27,6 +30,16 @@
     margin: 0;
   }
 
+  :global(p) {
+    font-weight: 200;
+    font-size: 1.2rem;
+  }
+
+  :global(h2) {
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+
   main {
     padding: 3rem;
     max-width: 1000px;
@@ -42,6 +55,6 @@
 <main>
   <h1>Fraser Darwent</h1>
   <Item words={['consultant', 'problem solver']} />
-  <Item words={['engineer', 'developer']} delay={2000} />
-  <Item words={['scrum master', 'enabler']} delay={4000} />
+  <Item words={['developer', 'cloud advocate']} delay={2000} />
+  <Item words={['scrum master', 'team enabler']} delay={4000} />
 </main>
