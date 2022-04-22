@@ -1,12 +1,16 @@
 <script context="module">
   export let prerender = true;
   import { fly, scale, slide, fade } from 'svelte/transition';
-  import Item from '$lib/components/item.svelte';
+  import Trait from '$lib/components/trait.svelte';
   import Consultant from '$lib/components/text/consultant.svelte';
 </script>
 
 <script>
-  let show = '';
+  let expanded = '';
+
+  function expand(section) {
+    expanded = section;
+  }
 </script>
 
 <style>
@@ -54,7 +58,16 @@
 
 <main>
   <h1>Fraser Darwent</h1>
-  <Item words={['consultant', 'problem solver']} />
-  <Item words={['developer', 'cloud advocate']} delay={2000} />
-  <Item words={['scrum master', 'team enabler']} delay={4000} />
+  <div
+    on:click={() => {
+      expand('consultant');
+    }}
+  >
+    <Trait
+      words={['consultant', 'problem solver']}
+      reverse={expanded == 'consultant'}
+    />
+  </div>
+  <div><Trait words={['developer', 'cloud advocate']} delay={2000} /></div>
+  <div><Trait words={['scrum master', 'team enabler']} delay={4000} /></div>
 </main>

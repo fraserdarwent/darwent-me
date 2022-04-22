@@ -3,6 +3,7 @@
   import * as easing from 'svelte/easing';
   import { onMount } from 'svelte';
 
+  export let reverse = false;
   export let words = [];
   export let delay = 0;
   let index = 0;
@@ -46,9 +47,13 @@
   onMount(() => {
     change();
   });
+
+  function expand() {
+    reverse = true;
+  }
 </script>
 
-<style>
+<style lang="scss">
   h2 {
     text-transform: capitalize;
     /* Required to stop text wrapping on transition */
@@ -58,14 +63,28 @@
   .layout {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     max-width: 300px;
     cursor: pointer;
+    transition: all 1s;
+  }
+
+  /* This container is used to move the word from one side to the other */
+  .word-container {
+    flex: 1;
+    position: relative;
   }
 
   .word {
+    width: min-content;
+    /* Required to set position of the strike */
     position: relative;
-    overflow: hidden;
+    // margin-left: 0%;
+    // transform: translateX(0%);
+  }
+
+  .word.reverse {
+    // margin-left: 100%;
+    // transform: translateX(-100%);
   }
 
   .strike {
@@ -78,22 +97,37 @@
 </style>
 
 <div class="layout">
+  <!-- {#if reverse == true}
+    <h2 transition:fly>&lt;</h2>
+  {/if} -->
   {#key words[index]}
-    <div class="word" on:mouseenter={stop} on:mouseleave={start}>
-      {#if strike}
-        <div
-          in:fly={{ x: -200, y: 0, duration: 500, easing: easing.circOut }}
-          out:fly={{ y: 20, duration, easing: easing.circIn }}
-          class="strike"
-        />
-      {/if}
-      <h2
-        in:fly={{ y: -20, duration, delay: duration, easing: easing.circOut }}
-        out:fly={{ y: 20, duration, easing: easing.circIn }}
+    <div
+      class="word-container"
+      on:click={() => {
+        expand();
+      }}
+    >
+      <div
+        class="word"
+        class:reverse
+        on:mouseenter={stop}
+        on:mouseleave={start}
       >
-        {words[index]}
-      </h2>
+        {#if strike}
+          <div
+            in:fly={{ x: -200, y: 0, duration: 500, easing: easing.circOut }}
+            out:fly={{ y: 20, duration, easing: easing.circIn }}
+            class="strike"
+          />
+        {/if}
+        <h2
+          in:fly={{ y: -20, duration, delay: duration, easing: easing.circOut }}
+          out:fly={{ y: 20, duration, easing: easing.circIn }}
+        >
+          {words[index]}
+        </h2>
+      </div>
     </div>
   {/key}
-  <h2>></h2>
+  <h2 transition:fly>&gt;</h2>
 </div>
