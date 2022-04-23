@@ -3,5 +3,8 @@ services:
     image: node:17
     entrypoint: yarn
     command: dev
-  volumes:
-    - .:/
+    working_dir: /workspace
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/workspace

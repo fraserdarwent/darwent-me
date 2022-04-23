@@ -1,24 +1,29 @@
 <script>
-  import { fly } from 'svelte/transition';
-  import * as easing from 'svelte/easing';
-  import { onMount } from 'svelte';
+  import { slide } from 'svelte/transition';
 
   export let words = [];
+  export let duration = 500;
+
   let index = 0;
   let word = words[index];
   let open = false;
-  let mounted = false;
 
-  onMount(() => {
-    mounted = true;
-  });
+  function toggle() {
+    if (!open) {
+      setTimeout(() => {
+        open = !open;
+      }, duration);
+      return;
+    }
+    open = !open;
+  }
 </script>
 
 <style lang="scss">
   h2 {
     text-transform: capitalize;
-    // /* Required to stop text wrapping on transition */
-    width: max-content;
+    // /* Potentially required to stop text wrapping on transition */
+    // width: max-content;
   }
 
   .layout {
@@ -26,7 +31,7 @@
     flex-direction: row;
     max-width: 300px;
     cursor: pointer;
-    transition: all 1s;
+    transition: flex 1s;
   }
 
   @keyframes animate-flex-0 {
@@ -48,20 +53,20 @@
   }
 
   .arrow.right.open {
-    animation: animate-flex-0 500ms forwards;
+    animation: animate-flex-0 var(--duration) forwards;
   }
 
   .arrow.left.open {
-    animation: animate-flex-1 500ms forwards;
+    animation: animate-flex-1 var(--duration) forwards;
   }
 
   .arrow.right {
-    animation: animate-flex-1 500ms forwards;
+    animation: animate-flex-1 var(--duration) forwards;
     text-align: end;
   }
 
   .arrow.left {
-    animation: animate-flex-0 500ms forwards;
+    animation: animate-flex-0 var(--duration) forwards;
   }
 
   .arrow {
@@ -72,11 +77,12 @@
 
 <div
   class="layout"
-  on:click={() => {
-    open = !open;
-  }}
+  on:click={toggle}
+  in:slide={{ delay: duration, duration }}
+  out:slide={{ duration }}
+  style="--duration:{duration}ms"
 >
-  <h2 class="arrow left" class:open class:mounted transition:fly>&lt;</h2>
+  <h2 class="arrow left" class:open>&lt;</h2>
   <h2>{word}</h2>
-  <h2 class="arrow right" class:open class:mounted transition:fly>&gt;</h2>
+  <h2 class="arrow right" class:open>&gt;</h2>
 </div>

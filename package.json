@@ -4,7 +4,7 @@
   "private": true,
   "license": "Unlicsensed",
   "scripts": {
-    "dev": "svelte-kit dev",
+    "dev": "svelte-kit dev --host 0.0.0.0 --port 8080",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
@@ -12,7 +12,6 @@
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "carbon-components-svelte": "^0.51.2",
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0"
   },
