@@ -27,6 +27,7 @@
   }
 
   .layout {
+    outline: none;
     display: flex;
     flex-direction: row;
     max-width: 300px;
