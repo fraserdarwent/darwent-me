@@ -1,5 +1,6 @@
 <script context="module">
   export let prerender = true;
+  export let router = false;
   import { slide } from 'svelte/transition';
   import Trait from '$lib/components/trait.svelte';
   import Consultant from '$lib/components/text/consultant.svelte';

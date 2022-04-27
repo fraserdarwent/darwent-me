@@ -6,8 +6,6 @@
   }
   :global(html) {
     font-family: 'Inter Flex';
-
-    /* font-family: 'Inter', sans-serif; */
     font-size: min(3vw, 15px);
     height: 100%;
     width: 100%;
