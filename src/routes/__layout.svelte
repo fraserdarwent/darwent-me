@@ -1,9 +1,11 @@
 <style>
   @font-face {
     font-family: 'Inter Flex';
-    src: url('/Inter-Flex.ttf') format('woff2-variations');
+    src: url('/Inter-Var.woff2') format('woff2');
     font-weight: 100 900;
+    font-display: swap;
   }
+
   :global(html) {
     font-family: 'Inter Flex';
     font-size: min(3vw, 15px);
@@ -32,4 +34,16 @@
   }
 </style>
 
+<svelte:head>
+  <title>Fraser Darwent</title>
+  <meta name="description" content="Personal website of Fraser Darwent" />
+  <link rel="icon" href="/favicon.svg" />
+  <link
+    rel="preload"
+    href="/Inter-Var.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  />
+</svelte:head>
 <slot />
