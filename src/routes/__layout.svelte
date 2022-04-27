@@ -1,7 +1,7 @@
 <style>
   @font-face {
     font-family: 'Inter Flex';
-    src: url('Inter-Flex.ttf') format('woff2-variations');
+    src: url('/Inter-Flex.ttf') format('woff2-variations');
     font-weight: 100 900;
   }
   :global(html) {
