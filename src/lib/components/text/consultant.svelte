@@ -1,5 +1,5 @@
 <p>
-  A complete tech enthusiast who is passionate about writing the best possible
-  software and creating cutting edge digital solutions for modern, cloud, and
-  container environments.
+  A complete tech enthusiast who is passionate about delivering practical
+  <b>solutions</b> to modern problems using cutting edge digital technology,
+  particularly on <b>cloud, serverless, and container</b> environments.
 </p>
