@@ -1,5 +1,5 @@
 <p>
-  I am a complete tech enthusiast, passionate about cars, and enjoy mountain
-  biking. I love music, films, and food. When not out driving the countryside or
-  developing pet projects, I’m trying to watch my way through the IMDb Top 250!
+  A complete tech enthusiast who is passionate about writing the best possible
+  software and creating cutting edge digital solutions for modern, cloud, and
+  container environments.
 </p>

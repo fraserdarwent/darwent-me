@@ -64,6 +64,15 @@
   }
 </style>
 
+<svelte:head>
+  <link
+    rel="icon"
+    href="/{expanded < 0
+      ? 'favicon'
+      : traits[expanded].background.replace('#', '')}.svg"
+  />
+</svelte:head>
+
 <div
   class="layout"
   style="--background:{traits[expanded]?.background ||
@@ -90,7 +99,10 @@
         in:slide={{ delay: duration, duration }}
         out:slide={{ duration }}
       >
-        <svelte:component this={traits[expanded].content} />
+        <svelte:component
+          this={traits[expanded].content}
+          background={traits[expanded].background}
+        />
       </div>
     {/if}
   </main>
