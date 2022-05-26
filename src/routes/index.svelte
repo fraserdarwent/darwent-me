@@ -6,6 +6,9 @@
   import Consultant from '$lib/components/text/consultant.svelte';
   import Developer from '$lib/components/text/developer.svelte';
   import ScrumMaster from '$lib/components/text/sm.svelte';
+  import Github from '$lib/components/logos/github.svelte';
+  import LinkedIn from '$lib/components/logos/linkedin.svelte';
+  import Logo from '$lib/components/logo.svelte';
 
   const duration = 400;
   const traits = [
@@ -106,4 +109,10 @@
       </div>
     {/if}
   </main>
+  <Logo fill={traits[expanded]?.font || 'white'} {duration}>
+    <Github />
+  </Logo>
+  <Logo fill={traits[expanded]?.font || 'white'} {duration}>
+    <LinkedIn />
+  </Logo>
 </div>
