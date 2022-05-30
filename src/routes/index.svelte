@@ -90,7 +90,7 @@
 </style>
 
 <svelte:head>
-  <link rel="icon" href="{traits[expanded].background.replace('#', '')}.svg}" />
+  <link rel="icon" href="{traits[expanded].background.replace('#', '')}.svg" />
 </svelte:head>
 
 <div
