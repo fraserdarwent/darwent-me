@@ -3,7 +3,7 @@
 
   export let words = [];
   export let duration = 500;
-
+  let currentDuration = 0;
   let index = 0;
   let word = words[index];
   let open = false;
@@ -17,13 +17,16 @@
     }
     open = !open;
   }
+
+  // Prevent flickering on load
+  setTimeout(() => {
+    currentDuration = duration;
+  }, duration);
 </script>
 
 <style lang="scss">
   h2 {
     text-transform: capitalize;
-    // /* Potentially required to stop text wrapping on transition */
-    // width: max-content;
   }
 
   .layout {
@@ -81,7 +84,7 @@
   on:click={toggle}
   in:slide={{ delay: duration, duration }}
   out:slide={{ duration }}
-  style="--duration:{duration}ms"
+  style="--duration:{currentDuration}ms"
 >
   <h2 class="arrow left" class:open>&lt;</h2>
   <h2>{word}</h2>

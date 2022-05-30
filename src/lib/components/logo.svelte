@@ -5,7 +5,7 @@
 
 <style>
   svg {
-    transition: background var(--duration);
+    transition: fill var(--duration);
   }
 </style>
 
