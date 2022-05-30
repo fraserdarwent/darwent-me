@@ -1,5 +1,5 @@
 services:
-  dev:
+  yarn:
     image: node:17
     entrypoint: yarn
     command: dev

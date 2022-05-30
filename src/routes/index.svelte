@@ -13,9 +13,14 @@
   const duration = 400;
   const traits = [
     {
+      background: '#7000ff',
+      font: 'white',
+    },
+    {
       words: ['consultant', 'problem solver'],
       content: Consultant,
       background: '#FF4848',
+      font: 'white',
     },
     {
       words: ['developer', 'cloud advocate'],
@@ -33,14 +38,14 @@
 </script>
 
 <script>
-  let expanded = -1;
+  let expanded = 0;
 
   function toggle(index) {
-    expanded = expanded == index ? -1 : index;
+    expanded = expanded == index ? 0 : index;
   }
 </script>
 
-<style>
+<style lang="scss">
   .layout {
     transition: all var(--duration);
     background: var(--background);
@@ -59,44 +64,82 @@
 
   h1 {
     font-size: 5rem;
-    margin-bottom: 50px;
   }
 
   .content {
     overflow: hidden;
+  }
+
+  .logos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+
+    .logo {
+      margin: 10px 10px 10px 0;
+    }
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 50px;
   }
 </style>
 
 <svelte:head>
   <link
     rel="icon"
-    href="/{expanded < 0
-      ? 'favicon'
-      : traits[expanded].background.replace('#', '')}.svg"
+    href="${traits[expanded].background.replace('#', '')}.svg}"
   />
 </svelte:head>
 
 <div
   class="layout"
-  style="--background:{traits[expanded]?.background ||
-    '#7000ff'};--duration:{duration * 3}ms;--font:{traits[expanded]?.font ||
-    'white'};"
+  style="
+  --background:{traits[expanded].background};
+  --duration:{duration * 3}ms;
+  --font:{traits[expanded].font};"
 >
   <main>
-    <h1>Fraser Darwent</h1>
+    <header>
+      <h1>Fraser Darwent</h1>
+      <div class="logos">
+        <a href="https://github.com/fraserdarwent">
+          <div class="logo">
+            <Logo fill={traits[expanded]?.font || 'white'} {duration}>
+              <Github />
+            </Logo>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/fraserdarwent/">
+          <div class="logo">
+            <Logo fill={traits[expanded]?.font || 'white'} {duration}>
+              <LinkedIn />
+            </Logo>
+          </div>
+        </a>
+      </div>
+    </header>
+
     {#each traits as trait, index}
-      {#if expanded < 0 || expanded == index}
-        <div
-          on:click={() => {
-            toggle(index);
-          }}
-        >
-          <Trait words={trait.words} {duration} />
-        </div>
+      {#if 0 < index}
+        {#if expanded < 1 || expanded == index}
+          <div
+            on:click={() => {
+              toggle(index);
+            }}
+          >
+            <Trait words={trait.words} {duration} />
+          </div>
+        {/if}
       {/if}
     {/each}
 
-    {#if -1 < expanded}
+    {#if 0 < expanded}
       <div
         class="content"
         in:slide={{ delay: duration, duration }}
@@ -109,10 +152,4 @@
       </div>
     {/if}
   </main>
-  <Logo fill={traits[expanded]?.font || 'white'} {duration}>
-    <Github />
-  </Logo>
-  <Logo fill={traits[expanded]?.font || 'white'} {duration}>
-    <LinkedIn />
-  </Logo>
 </div>
