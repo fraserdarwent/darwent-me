@@ -12,6 +12,7 @@
     height: 100%;
     width: 100%;
     -webkit-tap-highlight-color: transparent;
+    background-color: #7000ff;
   }
 
   :global(body) {
@@ -37,7 +38,7 @@
 <svelte:head>
   <title>Fraser Darwent</title>
   <meta name="description" content="Personal website of Fraser Darwent" />
-  <link rel="icon" href="/favicon.svg" />
+  <link rel="icon" href="/7000ff.svg" />
   <link
     rel="preload"
     href="/Inter-Var.woff2"
