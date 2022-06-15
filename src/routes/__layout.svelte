@@ -9,14 +9,13 @@
   :global(html) {
     font-family: 'Inter Flex';
     font-size: min(3vw, 15px);
-    height: 100%;
-    width: 100%;
     -webkit-tap-highlight-color: transparent;
     background-color: #7000ff;
   }
 
-  :global(body) {
-    height: 100%;
+  :global(html, body) {
+    /* VH to fix the behaviour when address bar hides */
+    height: 100vh;
     width: 100%;
   }
 
